@@ -6,8 +6,8 @@ namespace CrazyFarm
 {
     public enum AnimalType
 	{
-        CHICKEN,
-        COW,
-        PIG
+        MONKEY,
+        OWL,
+        BUNNY
 	}
 }
