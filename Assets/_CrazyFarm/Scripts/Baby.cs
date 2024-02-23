@@ -34,6 +34,7 @@ namespace CrazyFarm
         public void OnBeginDrag(PointerEventData eventData)
         {
             DOTween.Kill(this);
+            transform.DOPunchScale(Vector3.one * 0.05f, 0.25f, 3);
         }
 
         public void OnDrag(PointerEventData eventData)
