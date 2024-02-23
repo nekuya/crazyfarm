@@ -17,6 +17,12 @@ namespace CrazyFarm
         private new BoxCollider2D collider;
         private float elapsedTime;
         private int currentBabyType = 0;
+
+        private void Start()
+        {
+            elapsedTime = delayTime;
+        }
+
         public int CurrentCapacity { get 
             {
                 int current = 0;
@@ -54,7 +60,7 @@ namespace CrazyFarm
             babies.Add(baby);
             baby.transform.position = transform.position;
             baby.transform.localScale = Vector3.zero;
-            baby.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
+            baby.transform.DOScale(Vector3.one * 0.2f, 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
            {
                baby.StartStep();
            });
