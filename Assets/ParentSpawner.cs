@@ -25,15 +25,12 @@ namespace SheepFold
 
             Transform lSelectedSpot = lUsableSpots[0];
             Parent lParent = Instantiate(prefabs[Random.Range(0, prefabs.Length)], lSelectedSpot.position, Quaternion.identity, null);
-            lParent.OnQuit += Parent_OnQuit;
+            lParent.OnQuit += (Parent sender) =>
+            {
+                lSelectedSpot.gameObject.SetActive(true);
+            };
 
             lSelectedSpot.gameObject.SetActive(false);
-        }
-
-        private void Parent_OnQuit(Parent sender)
-        {
-            sender.OnQuit -= Parent_OnQuit;
-            spots.Where(x => x.position == sender.transform.position).First().gameObject.SetActive(true);
         }
     }
 }
