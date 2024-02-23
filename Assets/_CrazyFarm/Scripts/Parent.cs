@@ -7,9 +7,8 @@ using System.Linq;
 
 namespace SheepFold
 {
-    public class Parent : MonoBehaviour, IPointerClickHandler
+    public class Parent : Family, IPointerClickHandler
     {
-		[SerializeField] private AnimalType type;
         [SerializeField] private int minBabies;
         [SerializeField] private int maxBabies;
 
