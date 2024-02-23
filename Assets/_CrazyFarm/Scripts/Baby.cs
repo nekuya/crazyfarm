@@ -18,12 +18,7 @@ namespace CrazyFarm
         public float RandomStepDistance => Random.Range(minMaxStepDistance.x, minMaxStepDistance.y);
         public float RandomDurationBtwSteps => Random.Range(minMaxDurationBtwSteps.x, minMaxDurationBtwSteps.y);
 
-        private void Start()
-        {
-            StartStep();
-        }
-
-        private void StartStep()
+        public void StartStep()
         {
             Vector3 lEndPosition = transform.position +
                 Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward) * Vector3.right * RandomStepDistance;
