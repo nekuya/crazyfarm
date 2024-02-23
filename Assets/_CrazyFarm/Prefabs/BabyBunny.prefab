@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 136131911943191893, guid: 26c4d93efe0528440a178c47eabeab2d,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 47ab7cac16a0ca3459ac7982cab80cd6, type: 3}
+    - target: {fileID: 136131911943191893, guid: 26c4d93efe0528440a178c47eabeab2d,
+        type: 3}
       propertyPath: <type>k__BackingField
       value: 2
       objectReference: {fileID: 0}
@@ -72,7 +77,7 @@ PrefabInstance:
     - target: {fileID: 7159521258391903951, guid: 26c4d93efe0528440a178c47eabeab2d,
         type: 3}
       propertyPath: m_Name
-      value: BabyRabbit
+      value: BabyBunny
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

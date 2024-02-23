@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <type>k__BackingField: 0
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 79de80f495b1061468e82794560633d9, type: 3}
   audioSource: {fileID: 2748682375427686397}
   minMaxStepDistance: {x: 1.4348817, y: 2}
   minMaxDurationBtwSteps: {x: 0.9158815, y: 1.5979208}

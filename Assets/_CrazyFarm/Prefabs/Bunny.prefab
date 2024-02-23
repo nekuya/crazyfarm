@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2918276138653269341, guid: 602519c2e0bb4854c8517577716ed344,
         type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a4599565f6075942a91994f01e09ef3, type: 3}
+    - target: {fileID: 2918276138653269341, guid: 602519c2e0bb4854c8517577716ed344,
+        type: 3}
       propertyPath: <type>k__BackingField
       value: 2
       objectReference: {fileID: 0}
