@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 namespace CrazyFarm
 {
@@ -59,12 +60,19 @@ namespace CrazyFarm
 
             babies.Add(baby);
             baby.transform.position = transform.position;
+            baby.OnDestroyed += Baby_OnDestroyed;
             baby.transform.localScale = Vector3.zero;
             baby.transform.DOScale(Vector3.one * 0.2f, 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
            {
                baby.StartStep();
            });
             return baby;
+        }
+
+        private void Baby_OnDestroyed(Baby baby)
+        {
+            babies.Remove(baby);
+            baby.OnDestroyed -= Baby_OnDestroyed;
         }
 
         protected override void Awake()

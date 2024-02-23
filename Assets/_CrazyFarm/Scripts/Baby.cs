@@ -14,6 +14,7 @@ namespace CrazyFarm
         [SerializeField] private float stepDuration = 0.5f;
 
         private Parent inParent;
+        public System.Action<Baby> OnDestroyed;
 
         public float RandomStepDistance => Random.Range(minMaxStepDistance.x, minMaxStepDistance.y);
         public float RandomDurationBtwSteps => Random.Range(minMaxDurationBtwSteps.x, minMaxDurationBtwSteps.y);
@@ -85,6 +86,11 @@ namespace CrazyFarm
         {
             if (collision.gameObject.TryGetComponent(out Parent lParent))
                 inParent = null;
+        }
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke(this);
         }
     }
 }
