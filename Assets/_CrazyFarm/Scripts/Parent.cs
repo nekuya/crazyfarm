@@ -2,6 +2,7 @@ using CrazyFarm;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +11,7 @@ namespace SheepFold
 	public delegate void ParentEventHandler(Parent sender);
     public class Parent : Family, IPointerClickHandler
     {
+        [SerializeField] private TextMeshProUGUI requiredBabiesTxt;
         [SerializeField] private int minBabies;
         [SerializeField] private int maxBabies;
 
@@ -21,14 +23,17 @@ namespace SheepFold
 		private void Start()
 		{
 			requiredBabies = UnityEngine.Random.Range(minBabies, maxBabies);
+			requiredBabiesTxt.text = requiredBabies.ToString();
 		}
 
 		public void AddBaby(Baby baby)
 		{
 			baby.enabled = false;
             addedBabies.Add(baby);
+			requiredBabies--;
+			requiredBabiesTxt.text = requiredBabies.ToString();
 
-            if (addedBabies.Count >= requiredBabies)
+			if (addedBabies.Count >= requiredBabies)
                 Despawn();
         }
 
