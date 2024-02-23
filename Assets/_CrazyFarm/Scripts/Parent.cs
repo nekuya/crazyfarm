@@ -23,15 +23,13 @@ namespace SheepFold
 
 		private void OnTriggerEnter2D(Collider2D collision)
 		{
-			/*if (collision.gameObject.TryGetComponent<Baby>(out Baby lBaby))
-				lBaby.OnDropped += Dropped_CheckRightBaby;*/
-			if (collision.gameObject.TryGetComponent<Baby>(out Baby lBaby))
-				Dropped_CheckRightBaby(lBaby);
+			if (collision.gameObject.TryGetComponent(out Baby lBaby))
+				lBaby.OnDropped += Dropped_CheckRightBaby;
 		}
 
 		private void OnTriggerExit2D(Collider2D collision)
 		{
-			if (collision.gameObject.TryGetComponent<Baby>(out Baby lBaby))
+			if (collision.gameObject.TryGetComponent(out Baby lBaby))
 				lBaby.OnDropped -= Dropped_CheckRightBaby;
 		}
 
@@ -68,7 +66,7 @@ namespace SheepFold
         public void OnPointerClick(PointerEventData eventData)
         {
 			//PARENT ANIMAL SOUND
-			transform.DOPunchScale(-Vector3.one * 0.2f, 1f)
+			transform.DOPunchScale(-Vector3.one * 0.2f, 0.2f)
 				.OnComplete(AllChildCry);
         }
 

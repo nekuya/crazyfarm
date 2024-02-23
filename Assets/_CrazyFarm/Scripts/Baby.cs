@@ -68,7 +68,7 @@ namespace CrazyFarm
         public void Cry()
         {
             //BABY ANIMAL SOUND
-            transform.DOPunchScale(-Vector3.one * 0.2f, 1f);
+            transform.DOPunchScale(-Vector3.one * 0.2f, 0.25f);
         }
     }
 }
