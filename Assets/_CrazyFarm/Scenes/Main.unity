@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   maxCapacity: 10
-  delayTime: 5
+  delayTime: 2
   babyTypes:
   - {fileID: 621278208949964570, guid: eefa5638b73e79d4c8fc7eae950bea77, type: 3}
   - {fileID: 136131911943191893, guid: 26c4d93efe0528440a178c47eabeab2d, type: 3}
@@ -881,9 +881,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
-    type: 3}
-  m_Color: {r: 0.3814821, g: 0.7264151, b: 0.4176046, a: 1}
+  m_Sprite: {fileID: -1744936365, guid: 9e3b8fc75350093478ae207ff52514c6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
