@@ -12,53 +12,27 @@ namespace SheepFold
         [SerializeField] private int minBabies;
         [SerializeField] private int maxBabies;
 
-		private List<Baby> currentBabies;
 		private int requiredBabies;
+		private List<Baby> addedBabies = new List<Baby>();
 
 		private void Start()
 		{
-			currentBabies = new List<Baby>();
 			requiredBabies = Random.Range(minBabies, maxBabies);
 		}
 
-		private void OnTriggerEnter2D(Collider2D collision)
+		public void AddBaby(Baby baby)
 		{
-			if (collision.gameObject.TryGetComponent(out Baby lBaby))
-				lBaby.OnDropped += Dropped_CheckRightBaby;
-		}
+			baby.enabled = false;
+            addedBabies.Add(baby);
 
-		private void OnTriggerExit2D(Collider2D collision)
-		{
-			if (collision.gameObject.TryGetComponent(out Baby lBaby))
-				lBaby.OnDropped -= Dropped_CheckRightBaby;
-		}
-
-		private void Dropped_CheckRightBaby(Baby baby)
-		{
-			if (baby.type == type)
-			{
-				Debug.Log("It's the right baby");
-				currentBabies.Add(baby);
-
-				if (currentBabies.Count == requiredBabies)
-					Despawn();
-			}
-			else
-			{
-				Debug.Log("It's the wrong baby");
-				RejectBaby(baby);
-			}
-		}
-
-		private void RejectBaby(Baby baby)
-		{
-			baby.gameObject.transform.position = Enclosure.Instance.Bounds.RandomPoint();
-		}
+            if (addedBabies.Count >= requiredBabies)
+                Despawn();
+        }
 
 		private void Despawn()
 		{
-			for (int i = currentBabies.Count - 1; i >= 0; i--)
-				Destroy(currentBabies[i].gameObject);
+			for (int i = addedBabies.Count - 1; i >= 0; i--)
+				Destroy(addedBabies[i].gameObject);
 
 			Destroy(this);
 		}

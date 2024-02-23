@@ -1,5 +1,6 @@
 using DG.Tweening;
 using NaughtyAttributes;
+using SheepFold;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,9 +13,7 @@ namespace CrazyFarm
         [SerializeField, MinMaxSlider(0f, 2f)] private Vector2 minMaxDurationBtwSteps;
         [SerializeField] private float stepDuration = 0.5f;
 
-        private Vector2 startDragPosition;
-
-        public event BabyEventHandler OnDropped; 
+        private Parent inParent;
 
         public float RandomStepDistance => Random.Range(minMaxStepDistance.x, minMaxStepDistance.y);
         public float RandomDurationBtwSteps => Random.Range(minMaxDurationBtwSteps.x, minMaxDurationBtwSteps.y);
@@ -38,7 +37,6 @@ namespace CrazyFarm
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            startDragPosition = eventData.position;
             DOTween.Kill(this);
         }
 
@@ -50,25 +48,48 @@ namespace CrazyFarm
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            OnDropped?.Invoke(this);
+            if (inParent != null)
+            {
+                if (type == inParent.type)
+                {
+                    Debug.Log("It's the right baby");
+                    inParent.AddBaby(this);
+                }
+                else
+                {
+                    Debug.Log("It's the wrong baby");
+                    PutToCenter();
+                }
+            }
+            else
+                PutToCenter();
         }
 
-        public void CancelDrop()
+        private void PutToCenter()
         {
             //Call this function when it can't be dropped and you have to put it back to its original position 
-            if (startDragPosition != null)
+            transform.DOMove(Enclosure.Instance.Bounds.center, 0.5f).OnComplete(() =>
             {
-                transform.DOMove(startDragPosition, 0.5f).OnComplete(() =>
-                {
-                   StartStep();
-                });
-            }
+                StartStep();
+            });
         }
 
         public void Cry()
         {
             //BABY ANIMAL SOUND
             transform.DOPunchScale(-Vector3.one * 0.2f, 0.25f);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.TryGetComponent(out Parent lParent))
+                inParent = lParent;
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.TryGetComponent(out Parent lParent))
+                inParent = null;
         }
     }
 }
