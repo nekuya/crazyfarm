@@ -50,7 +50,7 @@ namespace CrazyFarm
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            
+            Dropped?.Invoke();
         }
 
         public void CancelDrop()
@@ -63,13 +63,6 @@ namespace CrazyFarm
                    StartStep();
                 });
             }
-        }
-
-        public void Drop()
-        {
-            //Call this function when it can be dropped 
-            Dropped?.Invoke();
-            Destroy(this);
         }
         
     }
