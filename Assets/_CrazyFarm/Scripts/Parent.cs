@@ -28,13 +28,16 @@ namespace SheepFold
 
 		public void AddBaby(Baby baby)
 		{
-			baby.enabled = false;
-            addedBabies.Add(baby);
 			requiredBabies--;
 			requiredBabiesTxt.text = requiredBabies.ToString();
+			baby.enabled = false;
+			addedBabies.Add(baby);
 
-			if (addedBabies.Count >= requiredBabies)
-                Despawn();
+			transform.DOPunchScale(Vector3.one * 0.1f, 0.5f, 3).OnComplete(() =>
+			{
+				if (addedBabies.Count >= requiredBabies)
+					Despawn();
+			});
         }
 
 		private void Despawn()
@@ -44,7 +47,10 @@ namespace SheepFold
             for (int i = addedBabies.Count - 1; i >= 0; i--)
 				Destroy(addedBabies[i].gameObject);
 
-			Destroy(this);
+			transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
+			{
+				Destroy(gameObject);
+			});
 		}
 
         public void OnPointerClick(PointerEventData eventData)
