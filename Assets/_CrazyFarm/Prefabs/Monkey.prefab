@@ -154,6 +154,7 @@ MonoBehaviour:
   <type>k__BackingField: 0
   sound: {fileID: 8300000, guid: 1a1bc1ff6b5420e4fa756e2b23534f90, type: 3}
   audioSource: {fileID: 706395587479929081}
+  requiredBabiesTxt: {fileID: 8923066129706794895}
   minBabies: 1
   maxBabies: 4
 --- !u!212 &4064031364525762180
