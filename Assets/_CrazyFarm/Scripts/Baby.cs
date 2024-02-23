@@ -30,7 +30,6 @@ namespace CrazyFarm
                 Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward) * Vector3.right * RandomStepDistance;
             lEndPosition = Enclosure.Instance.Bounds.ClosestPoint(lEndPosition);
 
-            //KILL WHEN DRAGGED, RESTART WHEN DROPPED
             DOTween.Sequence(this)
                 .Append(transform.DOMove(lEndPosition, stepDuration))
                 .AppendInterval(RandomDurationBtwSteps)
@@ -45,7 +44,8 @@ namespace CrazyFarm
 
         public void OnDrag(PointerEventData eventData)
         {
-            transform.position = eventData.position;
+            transform.position = Camera.main.ScreenToWorldPoint(
+                new (eventData.position.x, eventData.position.y, transform.position.z - Camera.main.transform.position.z));
         }
 
         public void OnEndDrag(PointerEventData eventData)
