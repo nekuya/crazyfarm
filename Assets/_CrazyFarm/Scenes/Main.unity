@@ -373,6 +373,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
+  maxCapacity: 10
+  delayTime: 5
+  babyTypes:
+  - {fileID: 136131911943191893, guid: 26c4d93efe0528440a178c47eabeab2d, type: 3}
+  - {fileID: 1211368239032997791, guid: 599c157dfb0b258488bbb9c0443f4dcd, type: 3}
+  - {fileID: 621278208949964570, guid: eefa5638b73e79d4c8fc7eae950bea77, type: 3}
 --- !u!61 &493818571
 BoxCollider2D:
   m_ObjectHideFlags: 0
