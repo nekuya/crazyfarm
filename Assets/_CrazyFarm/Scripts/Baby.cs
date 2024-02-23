@@ -11,7 +11,6 @@ namespace CrazyFarm
         [SerializeField, MinMaxSlider(0f, 2f)] private Vector2 minMaxStepDistance;
         [SerializeField, MinMaxSlider(0f, 2f)] private Vector2 minMaxDurationBtwSteps;
         [SerializeField] private float stepDuration = 0.5f;
-        [field: SerializeField] public AnimalType type { get; private set; } = default;
 
         private Vector2 startDragPosition;
 
