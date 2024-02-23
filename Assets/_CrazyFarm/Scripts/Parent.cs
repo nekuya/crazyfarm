@@ -1,12 +1,13 @@
 using CrazyFarm;
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Linq;
 
 namespace SheepFold
 {
+	public delegate void ParentEventHandler(Parent sender);
     public class Parent : Family, IPointerClickHandler
     {
         [SerializeField] private int minBabies;
@@ -15,9 +16,11 @@ namespace SheepFold
 		private int requiredBabies;
 		private List<Baby> addedBabies = new List<Baby>();
 
+		public event ParentEventHandler OnQuit;
+
 		private void Start()
 		{
-			requiredBabies = Random.Range(minBabies, maxBabies);
+			requiredBabies = UnityEngine.Random.Range(minBabies, maxBabies);
 		}
 
 		public void AddBaby(Baby baby)
@@ -31,7 +34,9 @@ namespace SheepFold
 
 		private void Despawn()
 		{
-			for (int i = addedBabies.Count - 1; i >= 0; i--)
+			OnQuit?.Invoke(this);
+
+            for (int i = addedBabies.Count - 1; i >= 0; i--)
 				Destroy(addedBabies[i].gameObject);
 
 			Destroy(this);
