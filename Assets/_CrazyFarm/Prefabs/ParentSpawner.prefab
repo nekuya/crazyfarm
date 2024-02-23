@@ -172,8 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6f7ad7bff5ad54c9f4daece6a1ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldownBtwParents: 8
-  prefabs: []
+  spawnCooldownBtwParents: 2
+  prefabs:
+  - {fileID: 6685224361380505259, guid: 422b11ed3fd6b3b448800f4798f644d9, type: 3}
+  - {fileID: 2918276138653269341, guid: 602519c2e0bb4854c8517577716ed344, type: 3}
+  - {fileID: 1031581848324696394, guid: 06e124bf9598b1049a70d153fd5fab85, type: 3}
   spots:
   - {fileID: 6385162990262835273}
   - {fileID: 6276951808436955347}

@@ -28,10 +28,9 @@ namespace SheepFold
 
 		public void AddBaby(Baby baby)
 		{
-			requiredBabies--;
-			requiredBabiesTxt.text = requiredBabies.ToString();
 			baby.enabled = false;
 			addedBabies.Add(baby);
+			requiredBabiesTxt.text = (requiredBabies - addedBabies.Count).ToString();
 
 			transform.DOPunchScale(Vector3.one * 0.1f, 0.5f, 3).OnComplete(() =>
 			{

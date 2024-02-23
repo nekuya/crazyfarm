@@ -1793,29 +1793,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParentSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 8453943107394934111, guid: b502a3277bd9b6b49b6f16ff67d27121,
-        type: 3}
-      propertyPath: prefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453943107394934111, guid: b502a3277bd9b6b49b6f16ff67d27121,
-        type: 3}
-      propertyPath: prefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 6685224361380505259, guid: 422b11ed3fd6b3b448800f4798f644d9,
-        type: 3}
-    - target: {fileID: 8453943107394934111, guid: b502a3277bd9b6b49b6f16ff67d27121,
-        type: 3}
-      propertyPath: prefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 2918276138653269341, guid: 602519c2e0bb4854c8517577716ed344,
-        type: 3}
-    - target: {fileID: 8453943107394934111, guid: b502a3277bd9b6b49b6f16ff67d27121,
-        type: 3}
-      propertyPath: prefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1031581848324696394, guid: 06e124bf9598b1049a70d153fd5fab85,
-        type: 3}
     - target: {fileID: 9198978386930379237, guid: b502a3277bd9b6b49b6f16ff67d27121,
         type: 3}
       propertyPath: m_LocalPosition.x
